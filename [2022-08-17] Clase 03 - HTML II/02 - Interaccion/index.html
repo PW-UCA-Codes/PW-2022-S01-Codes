@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interacción</title>
+</head>
+<body>
+
+  <!-- Botones -->
+  <button onclick="alert('Hola Mundo!');">
+    Botón 01
+  </button>
+  <button>
+    Botón 02
+  </button>
+
+  <hr>
+
+  <!-- Formularios -->
+  <form action="./index.html" method="get">
+
+    <!-- Inputs -->
+    <input type="text" placeholder="Dame tu nombre :v">
+    <input type="password" placeholder="Contraseña">
+    <input type="date">
+    <input type="file">
+    <input type="range">
+    <input type="number">
+
+  </form>
+
+  <hr>
+
+  <!-- Uso de name -->
+  <form action="./index.html" method="get">
+    <input type="text" name="username">
+    <input type="email" name="email">
+    <input type="password" name="password">
+
+    <input type="text" name="institution" list="institution-list">
+    <datalist id="institution-list">
+      <option value="UCA"></option>
+      <option value="UES"></option>
+      <option value="ESEN"></option>
+    </datalist>
+    
+  </form>
+
+  <hr>
+
+  <!-- Labels -->
+  <form action="./index.html" method="get">
+    <!-- Nested -->
+    <label>
+      Username
+      <input type="text" name="username" placeholder="e.g. douglashdezt">
+    </label>
+
+    <!-- Using id -->
+    <label for="password-field"> Password </label>
+    <input type="password" name="password" id="password-field">
+  </form>
+
+  <hr>
+
+  <!-- Fieldset & Legend -->
+  <form action="./index.html" method="get">
+    <fieldset>
+      <legend> ¿Estás de acuerdo? </legend>
+
+      <label>
+        <input type="checkbox" name="accept" value="yes">
+        Sí acepto
+      </label>
+
+      <label>
+        <input type="checkbox" name="accept" value="no">
+        No acepto
+      </label>
+    </fieldset>
+  </form>
+
+  <hr>
+
+  <!-- Submit & Reset -->
+  <h3>
+    Formulario de ingreso
+  </h3>
+
+  <form action="./index.html" method="post">
+
+    <fieldset>
+      <legend> Datos generales </legend>
+
+      <label for="names-field"> Nombres: </label>
+      <input type="text" name="names" id="names-field">
+
+      <br>
+      <br>
+      
+      <label for="lastnames-field"> Apellidos: </label>
+      <input type="text" name="lastnames" id="lastnames-field">
+
+      <br>
+      <br>
+
+      <label for="age-field"> Edad: </label>
+      <input type="number" min="0" name="age" id="age-field">
+    </fieldset>
+
+    <fieldset>
+      <legend>¿En qué área trabaja?</legend>
+
+      <label>
+        <input type="radio" name="area" value="ti">
+        TI
+      </label>
+      <label>
+        <input type="radio" name="area" value="rrhh">
+        Talento Humano
+      </label>
+      <label>
+        <input type="radio" name="area" value="admin">
+        Administración Central
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend> Confirmación </legend>
+      
+      <label>
+        <input type="checkbox" name="confirmation" required>
+        Toda la información proporcionada es verdad
+      </label>
+
+      <br>
+      <br>
+
+      <input type="submit" value="Enviar">
+      <input type="reset" value="Reiniciar">
+
+    </fieldset>
+
+  </form>
+
+</body>
+</html>
