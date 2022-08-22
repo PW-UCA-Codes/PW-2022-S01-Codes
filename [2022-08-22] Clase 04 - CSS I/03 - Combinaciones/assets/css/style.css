@@ -1,0 +1,66 @@
+/*
+  Nested
+*/
+.common {
+  border: 1px solid crimson;
+}
+
+button.common {
+  font-family: monospace;
+}
+
+p.common {
+  padding: 1rem;
+}
+
+input.entrada[type="password"]#password-field {
+  
+}
+
+input.entrada[type="password"]#password-field:focus {
+
+}
+
+/*
+  Descendiente
+*/
+
+section {
+  width: 25%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+section p {
+  font-family: monospace;
+}
+
+section h3 {
+  font-family: sans-serif;
+}
+
+/*
+  Hijos
+*/
+
+section>h3 {
+  color: darkred;
+  font-size: 1.5rem;
+}
+
+/*
+  Hermanos adyacentes
+*/
+
+h3+article { 
+  padding: 0.5rem;
+  border: 1px solid black;
+}
+
+/*
+  Hermanos generales
+*/
+
+h3~article {
+  background: #eee;
+}
