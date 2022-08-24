@@ -1,0 +1,30 @@
+div {
+    margin: 1rem;
+
+    width: 200px;
+    height: 100px;
+
+    border: 1px solid black;
+    background: #eee;
+}
+
+.square {
+    background: darkslateblue!important;
+    width: 100px;
+}
+
+.box {
+    background: lightcoral;
+}
+
+#unique-box {
+    background: crimson;
+}
+
+.box#unique-box {
+    background: deeppink;
+}
+
+div.box#unique-box {
+    background: green;
+}

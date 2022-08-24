@@ -1,0 +1,50 @@
+section {
+    margin: 3rem 0;
+}
+
+#block > p {
+    display: block; /* Redundante */
+    width: 50%;
+}
+
+#inline {
+    /* display: none; */
+    visibility: hidden;
+}
+
+#inline:hover {
+    visibility: visible;
+}
+
+#inline > a {
+    display: inline;
+
+    width: 200px;
+
+    padding: 1rem;
+    border: 1px solid black;
+}
+
+#inline-block > a {
+    display: inline-block;
+
+    width: 200px;
+    height: 200px;
+
+    padding: 1rem;
+    border: 1px solid black;
+}
+
+.box {
+    box-sizing: content-box; /* Redundante */
+
+    width: 100px;
+    height: 100px;
+
+    border: 5px solid black;
+    padding: 10px;
+}
+
+.box.alternative {
+    box-sizing: border-box;
+}
