@@ -1,0 +1,72 @@
+/* Reset */
+
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&family=Montserrat&family=Raleway&family=Roboto&display=swap');
+
+:root {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: "Roboto", sans-serif;
+}
+
+/* Grid Distribution */
+
+body {
+  width: 100%;
+  height: 100vh;
+
+  display: grid;
+
+  grid-template-columns:  minmax(50px, 15%) 1fr minmax(50px, 15%);
+  grid-template-rows:     auto 1fr ;
+
+  grid-template-areas:  "navbar header header"
+                        "navbar content aside";
+}
+
+.layout-item {
+  padding: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* layout items */
+
+header.layout-item {
+  grid-area: header;
+
+  background: #ccc;
+}
+
+nav.layout-item {
+  grid-area: navbar;
+
+  background: #ddd;
+}
+
+main.layout-item {
+  grid-area: content;
+
+  justify-content: flex-start;
+  flex-direction: column;
+
+  gap: 1rem;
+
+  text-align: justify;
+
+  overflow: auto;
+}
+
+aside.layout-item {
+  grid-area: aside;
+
+  background: #eee;
+}

@@ -1,0 +1,84 @@
+/* Reset */
+
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&family=Montserrat&family=Raleway&family=Roboto&display=swap');
+
+:root {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: "Roboto", sans-serif;
+}
+
+/* Main config */
+
+body > section {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 1rem;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  background: #eee;
+}
+
+/* Card */
+
+.card {
+  width: 500px;
+
+  padding: 1.5rem;
+  background: white;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  border-radius: 1rem;
+  position: relative;
+}
+
+.card h1 {
+  font-family: 'Alumni Sans Pinstripe', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.card p {
+  text-align: justify;
+}
+
+.card p.sign {
+  color: #555;
+
+  align-self: flex-end;
+  font-size: 1.25rem;
+}
+
+/* Imagen */
+
+.share-btn {
+  width: 2rem;
+  height: 2rem;
+
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+}
+
+.share-btn img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
