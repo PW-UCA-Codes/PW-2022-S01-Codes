@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&family=Roboto&display=swap');
+
+$theme-background-color: white;
+$theme-background-color-alt: darken($theme-background-color, 5%);
+
+$theme-text-font: "Roboto", sans-serif;
+$theme-heading-font: "Montserrat", sans-serif;
+
+$theme-heading-color: black;
+$theme-text-color: lighten($theme-heading-color, 5%);
+$theme-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);

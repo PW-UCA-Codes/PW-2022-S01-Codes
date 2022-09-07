@@ -1,0 +1,30 @@
+#cards .card {
+    flex: 1 0 300px;
+    max-width: 450px;
+    padding: 1rem;
+
+    @include flex();
+    align-items: center;
+
+    background: white;
+    box-shadow: $theme-box-shadow;
+    border-radius: 1rem;
+
+    figure {
+      @include square(200px);
+      
+      img {
+        @include fluid-img();
+      }
+    }
+
+    h3 {
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    p {
+      align-self: center;
+      text-align: justify;
+    }
+  }
