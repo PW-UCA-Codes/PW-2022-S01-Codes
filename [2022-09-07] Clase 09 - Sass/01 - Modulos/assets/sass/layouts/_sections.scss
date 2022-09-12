@@ -1,0 +1,35 @@
+body > section {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 1rem;
+
+    @include flex();
+
+    > h2 {
+      padding: 1rem;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    &:nth-child(even) {
+      background: $theme-background-color-alt;
+    }
+
+    &#intro {
+      @include flex(column, true);
+
+      h1 {
+        font-size: 3rem;
+        text-align: center;
+      }
+    }
+
+    &#cards {
+      .container {
+        @include flex(row);
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+    }
+  }
