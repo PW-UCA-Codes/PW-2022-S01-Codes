@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://kit.fontawesome.com/a48941071c.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js"></script>
+
+  <title> Pokemon Party </title>
+</head>
+<body>
+  <header>
+    <h1>
+      My Pokemon Party
+    </h1>
+  </header>
+
+  <main>
+    <section id="pokemon-form-section">
+      <h3>
+        Ingresa los datos de tu pokemon
+      </h3>
+
+      <form id="pokemon-form">
+        <label> 
+          No. Pokedex
+          <input type="number" name="index" id="pokemon-index-input">
+        </label>
+
+        <label> 
+          Nombre 
+          <input type="text" name="name" id="pokemon-name-input">
+        </label>
+        
+        <label> 
+          Sprite 
+          <input type="url" name="sprite" id="pokemon-sprite-input">
+        </label>
+
+        <div class="input-group">
+          <h4> Anatomía </h4>
+          <div class="inputs">
+            <label>
+              Altura
+              <input type="number" name="height" id="pokemon-height-input">
+            </label>
+            
+            <label>
+              Peso
+              <input type="number" name="weight" id="pokemon-weight-input">
+            </label>
+          </div>
+        </div>
+        
+        <div class="input-group">
+          <h4> Tipos </h4>
+          <div class="inputs">
+            <label>
+              Principal
+              <select name="type-1" id="pokemon-type-1-select">
+                <option value="normal"> Normal </option>
+                <option value="fighting"> Pelea </option>
+                <option value="ghost"> Fantasma </option>
+                <option value="bug"> Bicho </option>
+                <option value="dark"> Oscuro </option>
+                <option value="dragon"> Dragón </option>
+                <option value="electric"> Eléctrico </option>
+                <option value="fairy"> Hada </option>
+                <option value="fire"> Fuego </option>
+                <option value="flying"> Volador </option>
+                <option value="grass"> Planta </option>
+                <option value="ground"> Tierra </option>
+                <option value="ice"> Hielo </option>
+                <option value="poison"> Veneno </option>
+                <option value="psychic"> Psíquico </option>
+                <option value="rock"> Roca </option>
+                <option value="steel"> Acero </option>
+                <option value="water"> Agua </option>
+              </select>
+            </label>
+            
+            <label>
+              Secundario
+              <select name="type-2" id="pokemon-type-2-select">
+                <option value="none"> No tiene </option>
+                <option value="normal"> Normal </option>
+                <option value="fighting"> Pelea </option>
+                <option value="ghost"> Fantasma </option>
+                <option value="bug"> Bicho </option>
+                <option value="dark"> Oscuro </option>
+                <option value="dragon"> Dragón </option>
+                <option value="electric"> Eléctrico </option>
+                <option value="fairy"> Hada </option>
+                <option value="fire"> Fuego </option>
+                <option value="flying"> Volador </option>
+                <option value="grass"> Planta </option>
+                <option value="ground"> Tierra </option>
+                <option value="ice"> Hielo </option>
+                <option value="poison"> Veneno </option>
+                <option value="psychic"> Psíquico </option>
+                <option value="rock"> Roca </option>
+                <option value="steel"> Acero </option>
+                <option value="water"> Agua </option>
+              </select>
+            </label>
+          </div>
+        </div>
+        
+        <div class="input-group">
+          <h4> Estadísticas </h4>
+          <div class="inputs">
+            <label>
+              HP
+              <input min="0" max="255" type="number" name="hp" id="pokemon-hp-input">
+            </label>
+            <label>
+              ATK
+              <input min="0" max="255" type="number" name="atk" id="pokemon-atk-input">
+            </label>
+            <label>
+              DEF
+              <input min="0" max="255" type="number" name="def" id="pokemon-def-input">
+            </label>
+            <label>
+              SPA
+              <input min="0" max="255" type="number" name="spa" id="pokemon-spa-input">
+            </label>
+            <label>
+              SPD
+              <input min="0" max="255" type="number" name="spd" id="pokemon-spd-input">
+            </label>
+          </div>
+        </div>
+
+        <button type="submit">
+          Ingresar
+        </button>
+      </form>
+    </section>
+
+    <section id="pokemon-party-section">
+      <h3> Pokemon Party </h3>
+
+<!--       <article>
+        <figure>
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="Pokemon Sprite">
+        </figure>
+
+        <div class="info">
+          <h4> Pikachu </h4>
+          <p> # 25 </p>
+          <p> Altura: 4 </p>
+          <p> Peso: 23 </p>
+        </div>
+        
+        <div class="stats">
+          <div class="stat">
+            <p> HP: </p>
+            <div class="bar">
+              <div></div>
+            </div>
+          </div>
+          
+          <div class="stat">
+            <p> ATK: </p>
+            <div class="bar">
+              <div></div>
+            </div>
+          </div>
+
+          <div class="stat">
+            <p> DEF: </p>
+            <div class="bar">
+              <div></div>
+            </div>
+          </div>
+
+          <div class="stat">
+            <p> SPA: </p>
+            <div class="bar">
+              <div></div>
+            </div>
+          </div>
+
+          <div class="stat">
+            <p>SPD: </p>
+            <div class="bar">
+              <div></div>
+            </div>
+          </div>
+          
+        </div>
+      </article> -->
+    </section>
+  </main>
+  
+  <footer>
+    <p>
+      Copyright © Douglas Hernández
+    </p>
+  </footer>
+</body>
+</html>
