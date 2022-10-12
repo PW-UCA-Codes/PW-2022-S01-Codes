@@ -56,8 +56,7 @@ const setFormListener = () => {
 }
 
 const createPokemonCard = (poke) => {
-  return `
-<article data-index=${poke.index}>
+  const content = `
   <figure>
     <img src=${poke.sprite} alt="Pokemon Sprite">
   </figure>
@@ -68,7 +67,7 @@ const createPokemonCard = (poke) => {
     <p> Altura: ${poke.height} </p>
     <p> Peso: ${poke.weight} </p>
   </div>
-  
+
   <div class="stats">
     <div class="stat">
       <p> HP: </p>
@@ -106,13 +105,27 @@ const createPokemonCard = (poke) => {
     </div>
     
   </div>
-</article>
+  <button class="delete-pokemon"> basura </button>
   `;
+
+  const _article = document.createElement("article");
+  _article.innerHTML = content;
+  _article.dataset.index = poke.index;
+
+  _article.querySelector(".delete-pokemon")
+    .addEventListener("click", ()=> {
+      //Eliminar pokemon
+    });
+    
+  return _article;
 }
 
 const renderPokemons = () => {
-  const _pokeCards = pokemons.map(poke => createPokemonCard(poke));
-  pokeParty.innerHTML = _pokeCards.join("\n")
+  pokeParty.innerHTML = "";
+  pokemons.forEach(poke => {
+    pokeParty.appendChild(createPokemonCard(poke));
+  });
+  
 }
 
 //Main function
