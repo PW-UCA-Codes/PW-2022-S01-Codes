@@ -3,9 +3,10 @@
 /**
  * Module dependencies.
  */
+require("dotenv").config()
 
 var app = require('../app');
-var debug = require('debug')('wdyt-uca-api:server');
+var debug = require('debug')('app:server');
 var http = require('http');
 
 /**

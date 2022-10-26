@@ -1,0 +1,26 @@
+[
+    {
+      "id": "post_01",
+      "title": "WDYT Post 01",
+      "image": "https://picsum.photos/1200/900",
+      "description": "Esta es la descripción de este post!"
+    },
+    {
+      "id": "post_02",
+      "title": "WDYT Post 02",
+      "image": "https://picsum.photos/1200/900",
+      "description": "Esta es la descripción de este post!"
+    },
+    {
+      "id": "post_03",
+      "title": "WDYT Post 03",
+      "image": "https://picsum.photos/1200/900",
+      "description": "Esta es la descripción de este post!"
+    },
+    {
+      "id": "post_04",
+      "title": "WDYT Post 04",
+      "image": "https://picsum.photos/1200/900",
+      "description": "Esta es la descripción de este post!"
+    }
+  ]
