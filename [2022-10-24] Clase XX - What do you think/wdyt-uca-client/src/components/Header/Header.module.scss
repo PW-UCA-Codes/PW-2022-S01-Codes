@@ -1,0 +1,59 @@
+@import "../../variables";
+
+.Header {
+  padding: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  >div {
+    flex: 1 0 300px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .Buttons {
+    justify-content: flex-end;
+  }
+
+  figure {
+    width: 64px;
+    height: 64px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  h1 {
+    color: $theme-light-color;
+    font-family: "Handlee", sans-serif;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    color: $theme-light-color;
+
+    background: $theme-accent-color;
+    border: none;
+    border-radius: 0.5rem;
+
+    cursor: pointer;
+    transition: all ease-in-out 250ms;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.05) rotateZ(2deg);
+    }
+  }
+
+}

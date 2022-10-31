@@ -1,0 +1,12 @@
+@import "./../../variables";
+
+.Footer {
+  padding: 1rem;
+
+  background: $theme-darkest-color;
+  color: $theme-light-color;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

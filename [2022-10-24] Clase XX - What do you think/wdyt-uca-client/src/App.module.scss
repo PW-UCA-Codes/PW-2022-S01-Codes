@@ -1,0 +1,21 @@
+@import "./variables";
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+
+  background-color: $theme-dark-color;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  main {
+    flex: 1;
+    color: $theme-light-color;
+  }
+}
+
+#test {
+  flex: 1;
+}
