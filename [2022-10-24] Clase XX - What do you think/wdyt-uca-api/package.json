@@ -11,6 +11,8 @@
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "express": "~4.16.1",
+    "express-validator": "^6.14.2",
+    "mongoose": "^6.7.0",
     "morgan": "~1.9.1"
   },
   "devDependencies": {
