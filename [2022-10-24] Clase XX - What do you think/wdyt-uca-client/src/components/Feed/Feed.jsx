@@ -1,69 +1,90 @@
+import { useState, useEffect } from 'react';
 import classes from './Feed.module.scss';
 
 import NewPostForm from "./NewPostForm/NewPostForm";
 import Posts from "./Posts/Posts";
 
-const dummyData = [
-  {
-    "_id": "635ff374a78561f4a28fe2fd",
-    "title": "Post #1",
-    "description": "Esta es la descripción del post #0",
-    "image": "https://picsum.photos/1200/900",
-    "hidden": false,
-    "createdAt": "2022-10-31T16:10:28.674Z",
-    "updatedAt": "2022-10-31T16:10:28.674Z",
-    "__v": 0
-  },
-  {
-    "_id": "635ff37aa78561f4a28fe2ff",
-    "title": "Post #2",
-    "description": "Esta es la descripción del post #0",
-    "image": "https://picsum.photos/1200/902",
-    "hidden": false,
-    "createdAt": "2022-10-31T16:10:34.251Z",
-    "updatedAt": "2022-10-31T16:10:34.251Z",
-    "__v": 0
-  },
-  {
-    "_id": "635ff397a78561f4a28fe301",
-    "title": "Post #3",
-    "description": "Esta es la descripción del post #0",
-    "image": "https://picsum.photos/1202/900",
-    "hidden": false,
-    "createdAt": "2022-10-31T16:11:03.143Z",
-    "updatedAt": "2022-10-31T16:11:03.143Z",
-    "__v": 0
-  },
-  {
-    "_id": "635ff3e5a78561f4a28fe303",
-    "title": "Post #4",
-    "description": "Esta es la descripción del post #0",
-    "image": "https://picsum.photos/1200/901",
-    "hidden": false,
-    "createdAt": "2022-10-31T16:12:21.508Z",
-    "updatedAt": "2022-10-31T16:12:21.508Z",
-    "__v": 0
-  },
-  {
-    "_id": "635ff3f0a78561f4a28fe305",
-    "title": "Post #5",
-    "description": "Esta es la descripción del post #0",
-    "image": "https://picsum.photos/1201/900",
-    "hidden": false,
-    "createdAt": "2022-10-31T16:12:32.296Z",
-    "updatedAt": "2022-10-31T16:12:32.296Z",
-    "__v": 0
-  }
-]
+import { toast } from 'react-toastify';
 
 const Feed = () => {
+  const [posts, setPosts] = useState([]);
+
+  //Esto se ejecuta 1 vez, después del 1er render
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  //función fetch para todos los elementos
+  const fetchPosts = async () => {
+    try {
+      const response = await fetch("http://localhost:3500/api/post/");
+
+      if (response.ok) {
+        const data = await response.json();
+        setPosts(data.posts)
+      }
+    } catch (error) {
+      toast.error("Unexpected error!");
+    }
+  }
+
+  //Función para guardar un post en la API
+  const savePost = async (title, description, image) => {
+    try {
+      const response = await fetch("http://localhost:3500/api/post/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          title, description, image
+        })
+      });
+
+      if (response.ok) {
+        toast.success("Post saved!")
+      } else {
+        const msg = {
+          "400": "Wrong fields",
+          "404": "Not Found"
+        }
+
+        toast.warn(msg[response.status.toString()] || "Unexpected error!")
+      }
+    } catch (error) {
+      toast.error("Unexpected error!");
+    }
+  }
+
+  //Handler de añadir posts
+  const onAddPostHandler = async (title, description, image) => {
+    /* const _posts = [...posts, {
+      _id: new Date().getTime().toString(),
+      title: title,
+      description: description,
+      image: image
+    }]; */
+
+    /* _posts.push({
+      _id: new Date().getTime().toString(),
+      title: title,
+      description: description,
+      image: image
+    }); */
+
+    /* setPosts(_posts); */
+
+    await savePost(title, description, image);
+    fetchPosts();
+  }
+
   return (
     <div className={classes["feed-wrapper"]}>
       {/* Formulario */}
-      <NewPostForm />
+      <NewPostForm onAddPost={onAddPostHandler} />
 
       {/* Main Feed */}
-      <Posts posts={dummyData} />
+      <Posts posts={posts} />
     </div>
   )
 }

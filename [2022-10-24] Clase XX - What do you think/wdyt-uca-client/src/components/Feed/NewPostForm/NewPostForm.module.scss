@@ -1,0 +1,66 @@
+@import "../../../variables";
+
+.post-form-section {
+  padding: 1rem;
+
+  background: $theme-primary-light-color;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: $theme-drop-shadow;
+
+  form {
+    width: 100%;
+    max-width: 500px;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    label {
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      input,
+      textarea {
+        padding: 0.4rem 0.5rem;
+
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+
+        resize: none;
+
+        &:focus,
+        &:focus-visible,
+        &:focus-within {
+          outline: 1px solid lighten($theme-accent-color, 20);
+        }
+      }
+
+      div.chars-left {
+        padding: 0.1rem;
+
+        position: absolute;
+        bottom: 0.5rem;
+        right: 1.25rem;
+
+        font-family: "Space mono", monospace;
+        user-select: none;
+
+        color: gray;
+
+        background: #ffffffaa;
+      }
+    }
+  }
+}

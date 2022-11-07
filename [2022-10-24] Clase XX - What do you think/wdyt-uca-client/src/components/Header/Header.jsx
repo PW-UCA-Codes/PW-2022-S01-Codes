@@ -1,5 +1,6 @@
 import classes from './Header.module.scss';
 import logo from '../../assets/logo.png';
+import Button from '../Button/Button';
 
 const Header = () => {
   return (
@@ -13,8 +14,8 @@ const Header = () => {
       </div>
 
       <div className={classes["Buttons"]}>
-        <button> Sign in </button>
-        <button> Sign up </button>
+        <Button> Sign in </Button>
+        <Button> Sign up </Button>
       </div>
     </header>
   );
