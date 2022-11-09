@@ -14,8 +14,13 @@
   cursor: pointer;
   transition: all ease-in-out 250ms;
 
-  &:hover,
-  &:focus {
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
     transform: scale(1.05) rotateZ(2deg);
+  }
+
+  &:disabled {
+    color: #bbb;
+    cursor: not-allowed;
   }
 }

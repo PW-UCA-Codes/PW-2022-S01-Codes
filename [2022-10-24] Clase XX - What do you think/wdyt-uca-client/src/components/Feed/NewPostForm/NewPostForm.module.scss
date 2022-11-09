@@ -45,6 +45,10 @@
         &:focus-within {
           outline: 1px solid lighten($theme-accent-color, 20);
         }
+
+        &.error {
+          outline: 2px solid crimson;
+        }
       }
 
       div.chars-left {

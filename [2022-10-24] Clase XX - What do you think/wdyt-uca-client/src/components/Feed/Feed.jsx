@@ -5,9 +5,12 @@ import NewPostForm from "./NewPostForm/NewPostForm";
 import Posts from "./Posts/Posts";
 
 import { toast } from 'react-toastify';
+import axios from 'axios';
+import { useConfigContext } from '../../contexts/ConfigContext';
 
 const Feed = () => {
   const [posts, setPosts] = useState([]);
+  const { startLoading, stopLoading } = useConfigContext();
 
   //Esto se ejecuta 1 vez, después del 1er render
   useEffect(() => {
@@ -17,21 +20,22 @@ const Feed = () => {
   //función fetch para todos los elementos
   const fetchPosts = async () => {
     try {
-      const response = await fetch("http://localhost:3500/api/post/");
+      startLoading();
+      //const response = await fetch("http://localhost:3500/api/post/");
+      const { data } = await axios.get("/post");
+      setPosts(data.posts);
 
-      if (response.ok) {
-        const data = await response.json();
-        setPosts(data.posts)
-      }
     } catch (error) {
       toast.error("Unexpected error!");
+    } finally {
+      stopLoading();
     }
   }
 
   //Función para guardar un post en la API
   const savePost = async (title, description, image) => {
     try {
-      const response = await fetch("http://localhost:3500/api/post/", {
+      /* const response = await fetch("http://localhost:3500/api/post/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -39,20 +43,23 @@ const Feed = () => {
         body: JSON.stringify({
           title, description, image
         })
-      });
+      }); */
+      startLoading();
 
-      if (response.ok) {
-        toast.success("Post saved!")
-      } else {
-        const msg = {
-          "400": "Wrong fields",
-          "404": "Not Found"
-        }
+      await axios.post("/post", { title, description, image });
+      toast.success("Post saved!");
 
-        toast.warn(msg[response.status.toString()] || "Unexpected error!")
-      }
     } catch (error) {
-      toast.error("Unexpected error!");
+      const { status } = error.response || { status: 500 };
+      const msg = {
+        "400": "Wrong fields",
+        "404": "Not Found",
+        "500": "Something went wrong!"
+      }
+
+      toast.error(msg[status.toString()] || "Unexpected error!");
+    } finally {
+      stopLoading();
     }
   }
 
