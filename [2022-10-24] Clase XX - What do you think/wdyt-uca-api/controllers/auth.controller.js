@@ -1,6 +1,8 @@
 const User = require("../models/User.model");
 const debug = require("debug")("app:auth-controller");
 
+const { createToken, verifyToken } = require("../utils/jwt.tools");
+
 const controller = {};
 
 controller.register = async (req, res) => {
@@ -50,9 +52,15 @@ controller.login = async (req, res) => {
       return res.status(401).json({ error: "Contraseña no coincide" });
     }
 
-
     //Paso 03: Loggearlo
-    return res.status(200).json({ message: "El usuario ha iniciado sesion" })
+    const token = createToken(user._id);
+    user.tokens = [token, ...user.tokens.filter(_token => verifyToken(_token)).splice(0, 4)];
+
+    await user.save();
+
+    //Paso 04: Registrar los tokens de usuario
+
+    return res.status(200).json({ token: token });
   } catch (error) {
     debug(error);
     return res.status(500).json({ error: "Error inesperado" })

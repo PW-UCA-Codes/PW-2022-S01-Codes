@@ -6,6 +6,8 @@ const postController = require("../../controllers/post.controller");
 const postValidators = require("../../validators/post.validators");
 const runValidations = require("../../validators/index.middleware");
 
+const { authentication } = require('../../middlewares/auth.middewares');
+
 router.get("/", postController.findAll);
 router.get("/:identifier",
     postValidators.findPostByIdValidator,
@@ -13,6 +15,7 @@ router.get("/:identifier",
     postController.findOneById);
 
 router.post("/",
+    authentication,
     postValidators.createPostValidator,
     runValidations,
     postController.create);
