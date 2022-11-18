@@ -1,5 +1,6 @@
 const User = require("../models/User.model");
 const debug = require("debug")("app:auth-controller");
+const ROLES = require("../data/roles.constants.json");
 
 const { createToken, verifyToken } = require("../utils/jwt.tools");
 
@@ -24,7 +25,8 @@ controller.register = async (req, res) => {
     const newUser = new User({
       username: username,
       email: email,
-      password: password
+      password: password,
+      roles: [ROLES.USER]
     })
 
     await newUser.save();
