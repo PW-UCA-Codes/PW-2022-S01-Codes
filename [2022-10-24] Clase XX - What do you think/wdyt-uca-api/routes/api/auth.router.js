@@ -4,6 +4,7 @@ const router = Express.Router();
 const authController = require("../../controllers/auth.controller");
 const runValidations = require("../../validators/index.middleware");
 const { registerValidator } = require("../../validators/auth.validators");
+const { authentication } = require("../../middlewares/auth.middewares");
 
 router.post("/signup",
   registerValidator,
@@ -11,6 +12,8 @@ router.post("/signup",
   authController.register
 );
 
-router.post("/signin", authController.login)
+router.post("/signin", authController.login);
+
+router.get("/whoami", authentication, authController.whoami);
 
 module.exports = router;

@@ -69,4 +69,14 @@ controller.login = async (req, res) => {
   }
 }
 
+controller.whoami = async (req, res) => {
+  try {
+    const { _id, username, email, roles } = req.user;
+    return res.status(200).json({ _id, username, email, roles });
+  } catch (error) {
+    debug(error);
+    return res.status(500).json({ error: "Error inesperado" })
+  }
+}
+
 module.exports = controller;

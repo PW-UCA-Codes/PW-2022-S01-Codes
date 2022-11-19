@@ -32,6 +32,11 @@ const userSchema = new Schema({
   roles: {
     type: [String],
     default: []
+  },
+  savedPosts: {
+    type: [Schema.Types.ObjectId],
+    ref: "Post",
+    default: []
   }
 }, { timestamps: true });
 
