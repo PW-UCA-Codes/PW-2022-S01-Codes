@@ -7,10 +7,12 @@ import Posts from "../../components/Feed/Posts/Posts";
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useConfigContext } from '../../contexts/ConfigContext';
+import { useUserContext } from '../../contexts/UserContext';
 
 const FeedView = () => {
   const [posts, setPosts] = useState([]);
   const { startLoading, stopLoading } = useConfigContext();
+  const { token, user } = useUserContext()
 
   //Esto se ejecuta 1 vez, después del 1er render
   useEffect(() => {
@@ -88,7 +90,10 @@ const FeedView = () => {
   return (
     <div className={classes["feed-wrapper"]}>
       {/* Formulario */}
-      <NewPostForm onAddPost={onAddPostHandler} />
+      {
+        user &&
+        <NewPostForm onAddPost={onAddPostHandler} />
+      }
 
       {/* Main Feed */}
       <Posts posts={posts} />

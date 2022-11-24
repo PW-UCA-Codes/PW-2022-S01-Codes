@@ -8,6 +8,7 @@ const Posts = ({ posts = [] }) => {
         key={post._id}
         title={post.title}
         description={post.description}
+        user={post.user.username}
         image={post.image}
       />
     );

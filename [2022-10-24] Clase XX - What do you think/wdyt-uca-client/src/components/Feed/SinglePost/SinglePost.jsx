@@ -1,10 +1,11 @@
 import classes from './SinglePost.module.scss';
 import { MdFavoriteBorder, MdBookmarkBorder } from 'react-icons/md';
 
-const SinglePost = ({ title = "", description = "", image = "" }) => {
+const SinglePost = ({ title = "", description = "", image = "", user = "" }) => {
   return (
     <article className={classes["post"]} >
       <h4> {title} </h4>
+      <h5> {user} </h5>
       <p>
         {description}
       </p>

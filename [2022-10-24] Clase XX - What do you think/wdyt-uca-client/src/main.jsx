@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import AppComponent from './App'
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 import { ConfigProvider } from './contexts/ConfigContext';
+import { UserContextProvider } from './contexts/UserContext';
 import { ToastContainer } from 'react-toastify';
 
 import { BrowserRouter } from 'react-router-dom';
@@ -18,9 +19,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <ConfigProvider>
-        <AppComponent />
-        <ToastContainer theme='dark' position='bottom-right' />
-        <LoadingSpinner />
+        <UserContextProvider>
+          <AppComponent />
+          <ToastContainer theme='dark' position='bottom-right' />
+          <LoadingSpinner />
+        </UserContextProvider>
       </ConfigProvider>
     </BrowserRouter>
   </React.StrictMode>
