@@ -5,6 +5,8 @@ import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 import { ConfigProvider } from './contexts/ConfigContext';
 import { ToastContainer } from 'react-toastify';
 
+import { BrowserRouter } from 'react-router-dom';
+
 import axios from 'axios';
 
 import './index.css';
@@ -14,10 +16,12 @@ axios.defaults.baseURL = import.meta.env.VITE_APIENDPOINT || "http://localhost:3
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ConfigProvider>
-      <AppComponent />
-      <ToastContainer theme='dark' position='bottom-right' />
-      <LoadingSpinner />
-    </ConfigProvider>
+    <BrowserRouter>
+      <ConfigProvider>
+        <AppComponent />
+        <ToastContainer theme='dark' position='bottom-right' />
+        <LoadingSpinner />
+      </ConfigProvider>
+    </BrowserRouter>
   </React.StrictMode>
 )

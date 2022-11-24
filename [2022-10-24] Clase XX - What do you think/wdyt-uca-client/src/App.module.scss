@@ -13,6 +13,9 @@
   main {
     flex: 1;
     color: $theme-light-color;
+
+    display: flex;
+    flex-direction: column;
   }
 }
 

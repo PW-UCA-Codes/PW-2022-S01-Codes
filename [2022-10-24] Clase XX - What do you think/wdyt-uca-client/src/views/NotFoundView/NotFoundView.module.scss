@@ -1,0 +1,15 @@
+@import '../../variables';
+
+.container {
+  flex: 1;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+    color: $theme-light-color;
+  }
+}

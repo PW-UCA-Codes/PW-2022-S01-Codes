@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import classes from './Feed.module.scss';
+import classes from './FeedView.module.scss';
 
-import NewPostForm from "./NewPostForm/NewPostForm";
-import Posts from "./Posts/Posts";
+import NewPostForm from "../../components/Feed/NewPostForm/NewPostForm";
+import Posts from "../../components/Feed/Posts/Posts";
 
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useConfigContext } from '../../contexts/ConfigContext';
 
-const Feed = () => {
+const FeedView = () => {
   const [posts, setPosts] = useState([]);
   const { startLoading, stopLoading } = useConfigContext();
 
@@ -96,4 +96,4 @@ const Feed = () => {
   )
 }
 
-export default Feed;
+export default FeedView;

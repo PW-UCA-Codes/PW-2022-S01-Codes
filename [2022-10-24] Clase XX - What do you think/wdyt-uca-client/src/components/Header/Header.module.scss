@@ -9,7 +9,12 @@
   flex-wrap: wrap;
   gap: 1rem;
 
-  >div {
+  .Title {
+    cursor: pointer;
+  }
+
+  >div,
+  >a>div {
     flex: 1 0 300px;
     display: flex;
     align-items: center;
